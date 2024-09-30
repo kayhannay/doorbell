@@ -1,0 +1,15 @@
+[Unit]
+Description=Detects a doorbell signal
+After=network-online.target mosquitto.service
+Wants=network-online.target
+
+[Service]
+ExecStart=/usr/bin/doorbell
+Type=simple
+Restart=always
+User=pi
+StandardError=journal
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target
